@@ -3,8 +3,8 @@
 #include <time.h>
 #include <Windows.h>
 
-void binary(unsigned int a){
-    unsigned int b, d, c[36] = { 0 };
+void binary(){
+    unsigned int a,b, d, c[36] = { 0 };
     int i;
     i = 0;
     printf("Enter the decimal number:");
@@ -22,8 +22,8 @@ void binary(unsigned int a){
         printf("%d", c[i]);
     printf("\n");
 }
-void octal(unsigned int a){
-    unsigned int b, d, c[36] = { 0 };
+void octal(){
+    unsigned int a,b, d, c[36] = { 0 };
     int i;
     i = 0;
     printf("Enter the decimal number:");
@@ -41,24 +41,25 @@ void octal(unsigned int a){
         printf("%d", c[i]);
     printf("\n");
 }
-void hex(unsigned int a) {
-    unsigned int  b, d;
+void hex() {
+    unsigned int  a,b, d;
     int i, j = 0;
     char c[100];
     printf("Enter decimal number: ");
-    scanf_s("%ld", &a);
-    d = a;
+    scanf_s("%ld", &a); 
+    d=a;
     while (a != 0)
     {
         b = a % 16;
         if (b < 10)
-            c[j++] = 48 + b;
+            c[j] = 48 + b;
         else
-            c[j++] = 55 + b;
+            c[j] = 55 + b;
         a = a / 16;
+        j++;
     }
     printf("\nHex= ");
-    for (i = j; i >= 0; i--)
+    for (i = j-1; i >= 0; i--)
         printf("%c", c[i]);
     printf("\n");
 }
@@ -74,7 +75,7 @@ int main()
     printf("Decimal converter by Dragos\n\n");
     printf("Version 0.01\n\n");
     printf("Loading...\n\n");
-    Sleep(5000);
+    Sleep(3000);
     printf("1-Binary 2-Octal 3-Hex\n\n");
     printf("Choose: ");
     scanf_s("%d", &o);
@@ -84,17 +85,17 @@ int main()
     case 1:
         printf("Loading...\n\n");
         Sleep(2000);
-        binary(a);
+        binary();
         break;
     case 2:
         printf("Loading...\n\n");
         Sleep(2000);
-        octal(a);
+        octal();
         break;
     case 3:
         printf("Loading...\n\n");
         Sleep(2000);
-        hex(a);
+        hex();
         break;
     default:printf("Wrong choice.");
         break;
